@@ -1,0 +1,37 @@
+{
+  "name": "gulp-node-inspector",
+  "version": "0.0.1",
+  "description": "Run node inspector from your gulp build.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/koemei/gulp-node-inspector.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "node-inspector",
+    "debug"
+  ],
+  "author": "Koemei",
+  "contributors": [
+    {
+      "name": "Alessandro Arnodo",
+      "email": "alessandro@arnodo.net"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koemei/gulp-node-inspector/issues"
+  },
+  "homepage": "https://github.com/koemei/gulp-node-inspector",
+  "dependencies": {
+    "gulp-util": "~3.0.2",
+    "node-inspector": "~0.8.3"
+  },
+  "devDependencies": {
+    "mocha": "~2.1.0"
+  }
+}
