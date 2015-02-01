@@ -31,7 +31,7 @@ var nodeInspector = function(opt) {
           'Change "webPort": {port} to use a different port.'));
       }
 
-      return cb(new PluginError(PLUGIN_NAME, 'Cannot start the server at ' + config.webHost + ':' + config.webPort + '. Error: ' + (err.message || err)));
+      throw new PluginError(PLUGIN_NAME, 'Cannot start the server at ' + config.webHost + ':' + config.webPort + '. Error: ' + (err.message || err));
     });
 
     debugServer.on('listening', function() {
