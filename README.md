@@ -15,30 +15,41 @@ Perfect for development.
 var gulp = require('gulp');
 var nodeInspector = require('gulp-node-inspector');
 
-gulp.task('node-inspector', function () {
-  return nodeInspector({
-    'web-port': 8081,
-    'web-host': 'localhost',
-    'debug-port': 5082,
-    'save-live-edit': false,
-    preload: false,
-    'stack-trace-limit': 4
-  });
+gulp.task('debug', function() {
+
+  gulp.src(['app.js']) // any given file is ignored
+    .pipe(nodeInspector());
 });
 ```
 
-It works well with [gulp-nodemon](https://github.com/JacksonGariety/gulp-nodemon):
-```js
-// Gulpfile.js with nodemon
-var runSequence = require('run-sequence');
-gulp.task('nodemon', function () {
-  // ... nodemon config
-});
-gulp.task('debug', function (done) {
-  runSequence(['nodemon', 'node-inspector'], done);
+Example with all available options (default values):
+
+```javascript
+// Gulpfile.js
+var gulp = require('gulp');
+var nodeInspector = require('gulp-node-inspector');
+gulp.task('debug', function() {
+
+  gulp.src(['app.js'])
+    .pipe(nodeInspector({
+      debugPort: 5858,
+      webHost: '0.0.0.0',
+      webPort: 8080,
+      saveLiveEdit: false,
+      preload: true,
+      inject: true,
+      hidden: [],
+      stackTraceLimit: 50,
+      sslKey: '',
+      sslCert: ''
+    }));
 });
 ```
+
+Enter `gulp debug` in your shell to start the node-inspector.
 
 ## Options
 
-You can pass an object to `nodeInspector` with options [specified in node-inspector config](https://github.com/node-inspector/node-inspector#options).
+You can pass an object to `nodeInspector` with options [specified in node-inspector config](https://github.com/node-inspector/node-inspector#options).  
+Options are written in camelCase style!
+
