@@ -16,7 +16,7 @@ var PLUGIN_NAME = 'gulp-node-inspector';
 
 var nodeInspector = function(opt) {
     
-  var stream, files = [];
+  var stream;
   var options = merge(config, opt);
 
   var startDebugServer = function() {
@@ -53,11 +53,6 @@ var nodeInspector = function(opt) {
   }    
 
   var queueFile = function(file) {
-    if (file) {
-      files.push(file.path);
-    } else {
-      stream.emit('error', new PluginError(PLUGIN_NAME, 'got undefined file'));
-    }
   };
 
   var endStream = function() {
