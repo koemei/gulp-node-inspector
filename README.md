@@ -11,13 +11,13 @@ Perfect for development.
 ## Usage
 
 ```javascript
-// Gulpfile.js
+// gulpfile.js
 var gulp = require('gulp');
 var nodeInspector = require('gulp-node-inspector');
 
 gulp.task('debug', function() {
 
-  gulp.src(['app.js']) // any given file is ignored
+  gulp.src([])
     .pipe(nodeInspector());
 });
 ```
@@ -25,12 +25,12 @@ gulp.task('debug', function() {
 Example with all available options (default values):
 
 ```javascript
-// Gulpfile.js
+// gulpfile.js
 var gulp = require('gulp');
 var nodeInspector = require('gulp-node-inspector');
 gulp.task('debug', function() {
 
-  gulp.src(['app.js'])
+  gulp.src([])
     .pipe(nodeInspector({
       debugPort: 5858,
       webHost: '0.0.0.0',
