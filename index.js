@@ -1,42 +1,68 @@
 'use strict';
 
-var gulp = require('gulp');
-var spawn = require('child_process').spawn;
-var gutil = require('gulp-util');
+var es = require('event-stream'),
+    gutil = require('gulp-util'),
+    merge = require('merge'),
+    debugServer = require('node-inspector/lib/debug-server'),
+    Config = require('node-inspector/lib/config'),
+    packageJson = require('node-inspector/package.json');
 
-module.exports = function(options) {
-  options = options || {};
-  gulp.task('node-inspector', function(cb) {
-    var args = [require.resolve('node-inspector/bin/inspector')];
-    [
-      'web-port',
-      'web-host',
-      'debug-port',
-      'save-live-edit',
-      'readTimeout',
-      'stack-trace-limit',
-      'preload',
-      'hidden'
-    ].forEach(function(option) {
-      if (option in options) {
-        args.push('--' + option);
-        if (option === 'hidden') {
-          args.push(JSON.stringify(options[option]));
-          return;
-        }
-        args.push(options[option]);
+var PluginError = gutil.PluginError;
+var config = new Config([]);
+var DebugServer = debugServer.DebugServer;
+var log = gutil.log, colors = gutil.colors;
+
+var PLUGIN_NAME = 'gulp-node-inspector';
+
+var nodeInspector = function(opt) {
+    
+  var stream;
+  var options = merge(config, opt);
+
+  var startDebugServer = function() {
+
+    log(PLUGIN_NAME, 'is using node-inspector v' + packageJson.version);
+
+    var debugServer = new DebugServer(options);
+
+    debugServer.on('error', function(err) {
+
+      if (err.code === 'EADDRINUSE') {
+        log(colors.red('There is another process already listening at this address.\nChange "webPort": {port} to use a different port.'));
       }
+
+      stream.emit('error', PluginError(PLUGIN_NAME, 'Cannot start the server at ' + config.webHost + ':' + config.webPort + '. Error: ' + (err.message || err)));
     });
-    var child = spawn('node', args, {
-      stdio: 'inherit'
+
+    debugServer.on('listening', function() {
+      log(colors.green('Visit', this.address().url, 'to start debugging.'));
     });
-    child.on('error', function(err) {
-      gutil.log(gutil.colors.red('node-inspector error: ' + err.message));
+
+    debugServer.on('close', function() {
+      done();
     });
-    child.on('exit', function() {
-      gutil.log(gutil.colors.red('node-inspector process stopped'));
-    });
-    // calling callback for alerting gulp that the task is finished, probably we should do better.
-    cb();
-  });
+
+    debugServer.start(config);
+  }
+   
+  function done() {
+    // End the stream if it exists
+    if (stream) {
+      stream.emit('end');
+    }
+  }    
+
+  var queueFile = function(file) {
+  };
+
+  var endStream = function() {
+    startDebugServer();
+  };   
+    
+  // copied from gulp-karma 
+  stream = es.through(queueFile, endStream);
+    
+  return stream;
 };
+
+module.exports = nodeInspector;

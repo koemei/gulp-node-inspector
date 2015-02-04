@@ -1,11 +1,8 @@
 {
   "name": "gulp-node-inspector",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Run node inspector from your gulp build.",
   "main": "index.js",
-  "scripts": {
-    "test": "./node_modules/.bin/mocha"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/koemei/gulp-node-inspector.git"
@@ -20,6 +17,11 @@
     {
       "name": "Alessandro Arnodo",
       "email": "alessandro@arnodo.net"
+    },
+    {
+      "name": "Johannes Hoppe",
+      "email": "johannes.hoppe@haushoppe-its.de",
+      "url": "http://haushoppe-its.de/"
     }
   ],
   "license": "MIT",
@@ -28,10 +30,11 @@
   },
   "homepage": "https://github.com/koemei/gulp-node-inspector",
   "dependencies": {
-    "gulp-util": "~3.0.2",
-    "node-inspector": "~0.8.3"
+    "gulp-util": "^3.0.2",
+    "event-stream": "^3.2.2",
+    "node-inspector": "^0.8.3",
+    "merge": "^1.2.0"
   },
   "devDependencies": {
-    "mocha": "~2.1.0"
   }
 }
