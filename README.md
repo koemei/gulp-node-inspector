@@ -53,3 +53,6 @@ Enter `gulp debug` in your shell to start the node-inspector.
 You can pass an object to `nodeInspector` with options [specified in node-inspector config](https://github.com/node-inspector/node-inspector#options).  
 Options are written in camelCase style!
 
+## License
+[MIT](https://github.com/koemei/gulp-node-inspector/blob/master/LICENSE)
+
