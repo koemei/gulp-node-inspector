@@ -1,6 +1,6 @@
 {
   "name": "gulp-node-inspector",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Run node inspector from your gulp build.",
   "main": "index.js",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/koemei/gulp-node-inspector.git"
   },
   "keywords": [
-    "gulpplugin",
+    "gulpfriendly",
     "node-inspector",
     "debug"
   ],

@@ -1,6 +1,6 @@
 # gulp-node-inspector
 
-A gulp node-inspector wrapper
+A gulp-friendly node-inspector wrapper
 
 Perfect for development.
 
@@ -55,4 +55,3 @@ Options are written in camelCase style!
 
 ## License
 [MIT](https://github.com/koemei/gulp-node-inspector/blob/master/LICENSE)
-
