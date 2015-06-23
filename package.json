@@ -12,7 +12,7 @@
     "node-inspector",
     "debug"
   ],
-  "author": "Koemei"
+  "author": "Koemei",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/koemei/gulp-node-inspector/issues"
