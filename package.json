@@ -32,7 +32,7 @@
   "dependencies": {
     "gulp-util": "^3.0.2",
     "event-stream": "^3.2.2",
-    "node-inspector": "^0.8.3",
+    "node-inspector": "^0.10.1",
     "merge": "^1.2.0"
   },
   "devDependencies": {
