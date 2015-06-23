@@ -1,6 +1,6 @@
 {
   "name": "gulp-node-inspector",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Run node inspector from your gulp build.",
   "main": "index.js",
   "repository": {
@@ -12,18 +12,7 @@
     "node-inspector",
     "debug"
   ],
-  "author": "Koemei",
-  "contributors": [
-    {
-      "name": "Alessandro Arnodo",
-      "email": "alessandro@arnodo.net"
-    },
-    {
-      "name": "Johannes Hoppe",
-      "email": "johannes.hoppe@haushoppe-its.de",
-      "url": "http://haushoppe-its.de/"
-    }
-  ],
+  "author": "Koemei"
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/koemei/gulp-node-inspector/issues"
@@ -34,7 +23,5 @@
     "event-stream": "^3.2.2",
     "node-inspector": "^0.10.1",
     "merge": "^1.2.0"
-  },
-  "devDependencies": {
   }
 }

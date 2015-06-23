@@ -1,21 +1,22 @@
 'use strict';
 
 var es = require('event-stream'),
-    gutil = require('gulp-util'),
-    merge = require('merge'),
-    debugServer = require('node-inspector/lib/debug-server'),
-    Config = require('node-inspector/lib/config'),
-    packageJson = require('node-inspector/package.json');
+  gutil = require('gulp-util'),
+  merge = require('merge'),
+  debugServer = require('node-inspector/lib/debug-server'),
+  Config = require('node-inspector/lib/config'),
+  packageJson = require('node-inspector/package.json');
 
 var PluginError = gutil.PluginError;
 var config = new Config([]);
 var DebugServer = debugServer.DebugServer;
-var log = gutil.log, colors = gutil.colors;
+var log = gutil.log,
+  colors = gutil.colors;
 
 var PLUGIN_NAME = 'gulp-node-inspector';
 
 var nodeInspector = function(opt) {
-    
+
   var stream;
   var options = merge(config, opt);
 
@@ -44,24 +45,23 @@ var nodeInspector = function(opt) {
 
     debugServer.start(config);
   }
-   
+
   function done() {
     // End the stream if it exists
     if (stream) {
       stream.emit('end');
     }
-  }    
+  }
 
-  var queueFile = function(file) {
-  };
+  var queueFile = function(file) {};
 
   var endStream = function() {
     startDebugServer();
-  };   
-    
-  // copied from gulp-karma 
+  };
+
+  // copied from gulp-karma
   stream = es.through(queueFile, endStream);
-    
+
   return stream;
 };
 
