@@ -5,7 +5,9 @@ var es = require('event-stream'),
   merge = require('merge'),
   debugServer = require('node-inspector/lib/debug-server'),
   Config = require('node-inspector/lib/config'),
-  packageJson = require('node-inspector/package.json');
+  packageJson = require('node-inspector/package.json'),
+  os = require('os'),
+  open = require('open');
 
 var PluginError = gutil.PluginError;
 var config = new Config([]);
@@ -36,7 +38,15 @@ var nodeInspector = function(opt) {
     });
 
     debugServer.on('listening', function() {
-      log(colors.green('Visit', this.address().url, 'to start debugging.'));
+      log(colors.blue('Opening', colors.green(this.address().url), 'in Chrome. It may take a few seconds to load the inspector...'));
+
+      // Find out which OS the user is in... Open in the specific browser...
+      var chrome = os.platform() === 'linux' ? 'google-chrome' : (
+        os.platform() === 'darwin' ? 'google chrome' : (
+        os.platform() === 'win32' ? 'chrome' : 'firefox'));
+
+      // Open the url
+      open(this.address().url, chrome);
     });
 
     debugServer.on('close', function() {

@@ -1,6 +1,6 @@
 {
   "name": "gulp-node-inspector",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Run node inspector from your gulp build.",
   "main": "index.js",
   "repository": {
@@ -19,9 +19,10 @@
   },
   "homepage": "https://github.com/koemei/gulp-node-inspector",
   "dependencies": {
-    "gulp-util": "^3.0.2",
     "event-stream": "^3.2.2",
+    "gulp-util": "^3.0.2",
+    "merge": "^1.2.0",
     "node-inspector": "^0.10.1",
-    "merge": "^1.2.0"
+    "open": "0.0.5"
   }
 }
