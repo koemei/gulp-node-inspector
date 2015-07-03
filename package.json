@@ -1,6 +1,6 @@
 {
   "name": "gulp-node-inspector",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Run node inspector from your gulp build.",
   "main": "index.js",
   "repository": {
