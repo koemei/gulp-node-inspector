@@ -18,9 +18,9 @@ var PLUGIN_NAME = 'gulp-node-inspector';
 var nodeInspector = function(opt) {
 
   var stream;
-  var options = merge(config, opt);
 
   var startDebugServer = function() {
+    var options = merge(config, opt);
 
     log(PLUGIN_NAME, 'is using node-inspector v' + packageJson.version);
 
