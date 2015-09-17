@@ -21,7 +21,7 @@
   "dependencies": {
     "gulp-util": "^3.0.2",
     "event-stream": "^3.2.2",
-    "node-inspector": "^0.10.1",
+    "node-inspector": "^0.12.2",
     "merge": "^1.2.0"
   }
 }
