@@ -8,7 +8,6 @@ var es = require('event-stream'),
   packageJson = require('node-inspector/package.json');
 
 var PluginError = gutil.PluginError;
-var config = new Config([]);
 var DebugServer = debugServer.DebugServer;
 var log = gutil.log,
   colors = gutil.colors;
@@ -20,7 +19,7 @@ var nodeInspector = function(opt) {
   var stream;
 
   var startDebugServer = function() {
-    var options = merge(config, opt);
+    var options = new Config(Config.serializeOptions(opt));
 
     log(PLUGIN_NAME, 'is using node-inspector v' + packageJson.version);
 
