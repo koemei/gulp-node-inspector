@@ -5,19 +5,19 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/koemei/gulp-node-inspector.git"
+    "url": "https://github.com/dhiefphams/gulp-node-inspector.git"
   },
   "keywords": [
     "gulpfriendly",
     "node-inspector",
     "debug"
   ],
-  "author": "Koemei",
+  "author": "Koemei, Hien Pham <dhiefphams@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/koemei/gulp-node-inspector/issues"
+    "url": "https://github.com/dhiefphams/gulp-node-inspector/issues"
   },
-  "homepage": "https://github.com/koemei/gulp-node-inspector",
+  "homepage": "https://github.com/dhiefphams/gulp-node-inspector",
   "dependencies": {
     "gulp-util": "^3.0.8",
     "event-stream": "^3.3.4",
