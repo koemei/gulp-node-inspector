@@ -1,27 +1,27 @@
 {
   "name": "gulp-node-inspector",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Run node inspector from your gulp build.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/koemei/gulp-node-inspector.git"
+    "url": "https://github.com/dhiefphams/gulp-node-inspector.git"
   },
   "keywords": [
     "gulpfriendly",
     "node-inspector",
     "debug"
   ],
-  "author": "Koemei",
+  "author": "Koemei, Hien Pham <dhiefphams@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/koemei/gulp-node-inspector/issues"
+    "url": "https://github.com/dhiefphams/gulp-node-inspector/issues"
   },
-  "homepage": "https://github.com/koemei/gulp-node-inspector",
+  "homepage": "https://github.com/dhiefphams/gulp-node-inspector",
   "dependencies": {
-    "gulp-util": "^3.0.2",
-    "event-stream": "^3.2.2",
-    "node-inspector": "^0.12.2",
+    "gulp-util": "^3.0.8",
+    "event-stream": "^3.3.4",
+    "node-inspector": "^1.0.0",
     "merge": "^1.2.0"
   }
 }
